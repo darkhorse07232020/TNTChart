@@ -5,7 +5,7 @@ import { green } from "@mui/material/colors";
 import { removeW } from "../../utils/funcs";
 import "./style.css";
 
-const TokenRow = ({ data }) => {
+const TokenRow = ({ data, onClick }) => {
   const [imageExists, setImageExists] = useState(false);
 
   // useEffect(() => {
@@ -22,7 +22,7 @@ const TokenRow = ({ data }) => {
   // }, [data.symbol]);
 
   return (
-    <tr>
+    <tr onClick={onClick}>
       <td
         style={{
           display: "flex",
@@ -63,9 +63,9 @@ const TokenRow = ({ data }) => {
           {"+" +
             (data.tradeVolumeETH * 1
               ? (
-                  ((data.volume24HrsETH * 1) / (data.tradeVolumeETH * 1)) *
-                  100
-                ).toFixed(2)
+                ((data.volume24HrsETH * 1) / (data.tradeVolumeETH * 1)) *
+                100
+              ).toFixed(2)
               : "0") +
             "%"}
         </span>
